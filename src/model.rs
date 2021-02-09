@@ -1,6 +1,6 @@
 use crate::actor::{ db::DbActor, ws::WsActor };
-use crate::actix::prelude::{ Addr, Message };
 use crate::schema::messages;
+use crate::actix::prelude::{ Addr, Message };
 
 use chrono::NaiveDateTime;
 use serde_derive::{ Deserialize, Serialize };

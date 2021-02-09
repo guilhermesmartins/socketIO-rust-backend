@@ -3,6 +3,6 @@ table! {
         id -> Uuid,
         username -> Varchar,
         body -> Text,
-        ts -> Timestamp
+        ts -> Timestamp,
     }
 }

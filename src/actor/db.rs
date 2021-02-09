@@ -47,7 +47,7 @@ impl Handler<User> for DbActor {
             .load::<Msg>(conn)
             .unwrap();
         
-        Ok(msgs);
+        Ok(msgs)
     }
 }
 
@@ -66,10 +66,10 @@ impl Handler<Form> for DbActor {
 
         let result = diesel::insert_into(schema::messages::table)
             .values(&new_msg)
-            .get_results(conn)
+            .get_result(conn)
             .unwrap();
 
-        Ok(result);
+        Ok(result)
     }
 
 }

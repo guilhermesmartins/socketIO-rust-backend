@@ -24,13 +24,13 @@ impl Actor for Session {
 
     fn stopping(&mut self, ctx: &mut Self::Context) -> Running {
         ctx.state().ws.do_send(Disconnect { id: self.0 });
-        Running::Stop;
+        Running::Stop
     }
 }
 
 impl Session {
     fn heartbeat(&self, ctx: &mut WebsocketContext<Self, AppState>) {
-        ctx.run_interval(Duration::from_secs(5), | actor, ctx | {
+        ctx.run_interval(Duration::from_secs(300), | actor, ctx | {
             if Instant::now().duration_since(actor.1) > Duration::from_secs(10) {
                 println!("Heartbeat failed");
 
